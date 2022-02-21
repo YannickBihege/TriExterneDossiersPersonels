@@ -14,7 +14,7 @@ Avant d'aborder les techniques de tri externe, considérons à nouveau le modèl
 
 Rappelez-vous qu'un secteur est l'unité de base des E/S. En d'autres termes, toutes les lectures et écritures sur disque concernent un ou plusieurs secteurs complets. Les tailles de secteur sont généralement une puissance de deux, dans la plage de 512 à 16 Ko, selon le système d'exploitation et la taille et la vitesse du lecteur de disque. La taille de bloc utilisée pour les algorithmes de tri externe doit être égale ou un multiple de la taille de secteur.
 
-###Approches
+### Approches
 
 Si votre système d'exploitation prend en charge la mémoire virtuelle, le tri "externe" le plus simple consiste à lire l'intégralité du fichier dans la mémoire virtuelle et à exécuter une méthode de tri interne telle que Quicksort. Cette approche permet au gestionnaire de mémoire virtuelle d'utiliser son mécanisme de pool de mémoire tampon normal pour contrôler les accès au disque. Malheureusement, ce n'est pas toujours une option viable. Un inconvénient potentiel est que la taille de la mémoire virtuelle est généralement limitée à quelque chose de beaucoup plus petit que l'espace disque disponible. Ainsi, votre fichier d'entrée peut ne pas tenir dans la mémoire virtuelle. La mémoire virtuelle limitée peut être surmontée en adaptant une méthode de tri interne pour utiliser votre propre pool de mémoire tampon.
 
